@@ -1,3 +1,3 @@
 # Grade-Book
 Gradebook
-- Work in Progress
+- Incomplete (Work in Progress)
