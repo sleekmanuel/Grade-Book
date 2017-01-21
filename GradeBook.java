@@ -11,7 +11,7 @@ public class GradeBook {
 		// TODO Auto-generated method stub
 		StructData();
 	}
-	
+
 	public static void StructData(){
 		System.out.println();
 		System.out.println("To enter students grade in the system ENTER 1");
@@ -22,7 +22,7 @@ public class GradeBook {
 		System.out.println("To stop program ENTER 6");
 		System.out.print(" Pick an option from the menu: ");
 		int p= sc.nextInt();
-		
+
 		switch(p){
 		case 1:
 			UseStruct(Subjects());
@@ -32,16 +32,16 @@ public class GradeBook {
 			DeleteStud();
 		case 4:
 			DispAll();
-		case 5: 
+		case 5:
 			AlterGrade();
 		case 6:
-			System.out.println("You are out of the System!");
+			System.out.println("You just exited the System System!");
 			break;
 		default :
             System.out.println("Invalid option");
             StructData();
 		}
-	
+
 	}
 
 	/*
@@ -57,11 +57,11 @@ public class GradeBook {
 			for( int t = 0; t< numCourse;t++){
 				System.out.println("Enter Course "+ (t+1)+ ": ");
 				String name = sc.nextLine();
-				Courses[t] = name;	
+				Courses[t] = name;
 			}
-			return Courses;	
+			return Courses;
 		}
-		
+
 		// Enters students and there grades
 		@SuppressWarnings("unchecked")
 		public static void UseStruct(String[]Courses){
@@ -78,7 +78,7 @@ public class GradeBook {
 					System.out.println("Enter Grade for "+ Courses[w]+ ": ");
 					int grade = sc.nextInt();
 					//list.add(grade);
-					hm2.put(Courses[w], grade);	
+					hm2.put(Courses[w], grade);
 				}
 				hm3 = (HashMap<String, Integer>) hm2.clone();
 				hm.put(StudName, hm3);
@@ -93,7 +93,7 @@ public class GradeBook {
 			System.out.println("Enter Students Name for his/her grades: ");
 			String StudName = sc.nextLine();
 			System.out.println(hm.get(StudName));
-			
+
 			StructData();
 		}
 		// Deletes the student from the system
@@ -104,21 +104,21 @@ public class GradeBook {
 			String StudName = sc.nextLine();
 			hm.remove(StudName);
 			System.out.println(StudName+ " has been deleted from the system.");
-			
+
 			StructData();
 		}
 		// Displays all students and Grades in the System
-		public static void DispAll(){	
+		public static void DispAll(){
 			System.out.println(hm.entrySet());
-			
+
 			StructData();
 		}
-		
+
 		public static void AlterGrade(){
 			sc.nextLine();
 			System.out.println("Enter Students name: ");
 			String StudName = sc.nextLine();
-			
+
 			if(hm.containsKey(StudName)){
 			System.out.println("Enter Course to alter: ");
 			String Course = sc.nextLine();
@@ -128,9 +128,9 @@ public class GradeBook {
 			hm.get(StudName).put(Course, newGrade);
 			}
 			else{
-				System.out.println(StudName + " does not exist in the system");
+				System.out.println(StudName + " is not in our system system");
 			}
 			StructData();
 		}
-	
+
 }
