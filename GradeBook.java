@@ -88,24 +88,50 @@ public class GradeBook {
 		}
 		// Display a student's grades
 		public static void DispStud(){
-			sc.nextLine();
-			System.out.println();
-			System.out.println("Enter Students Name for his/her grades: ");
-			String StudName = sc.nextLine();
-			System.out.println(hm.get(StudName));
+			boolean right = false;
+		do{
+			try{
+				sc.nextLine();
+				System.out.println();
+				System.out.println("Enter Students Name for his/her grades: ");
+				String StudName = sc.nextLine();
+				if(hm.containsKey(StudName)){
+					System.out.println(hm.get(StudName));
+					right = true;}
+			else{
+				int ans = 2/0;
+				System.out.println(ans);
+			}
+		}catch(Exception e){
+			System.out.println("STUDENT'S NAME DOESN'T EXIST IN SYSTEM. Press Enter to continue");
+		}
+	}while(!right);
 
 			StructData();
 		}
 		// Deletes the student from the system
 		public static void DeleteStud(){
-			sc.nextLine();
-			System.out.println();
-			System.out.println("Enter Students Name delete his/her grades: ");
-			String StudName = sc.nextLine();
-			hm.remove(StudName);
-			System.out.println(StudName+ " has been deleted from the system.");
+			boolean right = false;
+				do{
+					try{
+						sc.nextLine();
+						System.out.println();
+						System.out.println("Enter Students Name delete his/her grades: ");
+						String StudName = sc.nextLine();
+						if(hm.containsKey(StudName)){
+						hm.remove(StudName);
+						System.out.println(StudName+ " has been deleted from the system.");
+						right = true;}
+						else{
+							int ans = 2/0;
+							System.out.println(ans);
+						}
+					}catch(Exception e){
+						System.out.println("STUDENT'S NAME DOESN'T EXIST IN SYSTEM. Press Enter to continue");
+					}
+				}while(!right);
 
-			StructData();
+				StructData();
 		}
 		// Displays all students and Grades in the System
 		public static void DispAll(){
@@ -115,22 +141,28 @@ public class GradeBook {
 		}
 
 		public static void AlterGrade(){
-			sc.nextLine();
-			System.out.println("Enter Students name: ");
-			String StudName = sc.nextLine();
 
-			if(hm.containsKey(StudName)){
-			System.out.println("Enter Course to alter: ");
-			String Course = sc.nextLine();
-			System.out.println("Enter new grade: ");
-			int newGrade = sc.nextInt();
-			hm.get(StudName).remove(Course);
-			hm.get(StudName).put(Course, newGrade);
-			}
-			else{
-				System.out.println(StudName + " is not in our system system");
-			}
+
+			int loop = 1;
+						do {
+							try{
+									sc.nextLine();
+								  System.out.println("Enter Students name: ");
+								  String StudName = sc.nextLine();
+									System.out.println("Enter Course to alter: ");
+									String Course = sc.nextLine();
+									System.out.println("Enter new grade: ");
+									int newGrade = sc.nextInt();
+									hm.get(StudName).remove(Course);
+									hm.get(StudName).put(Course, newGrade);
+									loop = 2;
+						}catch(Exception e){
+
+						System.out.println("AN ERROR OCCURED. REREAD THE INSTRUCTION");
+					  }
+					 }while(loop==1);
 			StructData();
+
 		}
 
 }
