@@ -97,7 +97,8 @@ public class GradeBook {
 				String StudName = sc.nextLine();
 				if(hm.containsKey(StudName)){
 					System.out.println(hm.get(StudName));
-					right = true;}
+					right = true;
+			}
 			else{
 				int ans = 2/0;
 				System.out.println(ans);
@@ -144,23 +145,22 @@ public class GradeBook {
 
 
 			int loop = 1;
-						do {
-							try{
-									sc.nextLine();
-								  System.out.println("Enter Students name: ");
-								  String StudName = sc.nextLine();
-									System.out.println("Enter Course to alter: ");
-									String Course = sc.nextLine();
-									System.out.println("Enter new grade: ");
-									int newGrade = sc.nextInt();
-									hm.get(StudName).remove(Course);
-									hm.get(StudName).put(Course, newGrade);
-									loop = 2;
-						}catch(Exception e){
-
-						System.out.println("AN ERROR OCCURED. REREAD THE INSTRUCTION");
-					  }
-					 }while(loop==1);
+			do {
+			     try{ 
+				sc.nextLine();
+				System.out.println("Enter Students name: ");
+				String StudName = sc.nextLine();
+				System.out.println("Enter Course to alter: ");
+				String Course = sc.nextLine();
+				System.out.println("Enter new grade: ");
+				int newGrade = sc.nextInt();
+				hm.get(StudName).remove(Course);
+				hm.get(StudName).put(Course, newGrade);
+				loop = 2;
+				}catch(Exception e){
+				System.out.println("AN ERROR OCCURED. REREAD THE INSTRUCTION");
+			         }
+			}while(loop==1);
 			StructData();
 
 		}
