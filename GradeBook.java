@@ -35,7 +35,7 @@ public class GradeBook {
 		case 5:
 			AlterGrade();
 		case 6:
-			System.out.println("You just exited the System System!");
+			System.out.println("You just exited the System!");
 			System.exit(0);
 		default :
             System.out.println("Invalid option");
@@ -136,8 +136,10 @@ public class GradeBook {
 		}
 		// Displays all students and Grades in the System
 		public static void DispAll(){
-			System.out.println(hm.entrySet());
-
+			for(java.util.Map.Entry<String, HashMap<String, Integer>> entry : hm.entrySet())
+		 			    {   //print keys and values
+		 			         System.out.println(entry.getKey() + " => " +entry.getValue());
+		 			    }
 			StructData();
 		}
 
