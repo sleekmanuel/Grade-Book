@@ -36,7 +36,7 @@ public class GradeBook {
 			AlterGrade();
 		case 6:
 			System.out.println("You just exited the System System!");
-			break;
+			System.exit(0);
 		default :
             System.out.println("Invalid option");
             StructData();
@@ -146,7 +146,7 @@ public class GradeBook {
 
 			int loop = 1;
 			do {
-			     try{ 
+			     try{
 				sc.nextLine();
 				System.out.println("Enter Students name: ");
 				String StudName = sc.nextLine();
